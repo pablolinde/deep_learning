@@ -1,6 +1,6 @@
-En este notebook se clasifican proteínas con una CNN.
+In this notebook, proteins are classified using a CNN.
 
-Los datos a procesar son un conjunto de imágenes sintéticas de cryo-EM. Cada imagen contiene una proyección 2D de una instancia de un determinado complejo molecular a una orientación aleatoria, específicamente los hay de cinco clases que según su código en la base de datos Protein Data Bank ([PDB](https://www.rcsb.org/)):
+The data to be processed consist of a set of synthetic cryo-EM images. Each image contains a 2D projection of an instance of a particular molecular complex in a random orientation. Specifically, there are five classes, as indicated by their codes in the Protein Data Bank [PDB](https://www.rcsb.org/):
 
 1. [3j9i](https://www.rcsb.org/structure/3J9I)
 2. [4cr2](https://www.rcsb.org/structure/4CR2)
@@ -8,6 +8,7 @@ Los datos a procesar son un conjunto de imágenes sintéticas de cryo-EM. Cada i
 4. [4v94](https://www.rcsb.org/structure/4V94)
 5. [6utj](https://www.rcsb.org/structure/6UTJ)
 
-Las imágenes tienen un tamaño de 50x50 píxeles y están guardadas en ficheros en formato PNG. El nombre de estos ficheros determina el nombre de la clase, el identificador de clase y el número de partícula de esta clase. El conjunto de datos se encuentra en el directorio *imgs/SNR_high*.
+The images are 50x50 pixels and are stored in PNG files. The file names determine the class name, the class identifier, and the particle number for that class. The dataset is located in the directory *imgs/SNR_high*.
 
-Para poder entrenar el modelo es necesario cargar las imágenes de disco y convertirlas en tensores (arrays n-dimensionales). Las etiquetas de la clase a las que pertenece cada imagen se pueden extraer del nombre de las imágenes. Es probable que al leer las imágenes de disco se vayan leyendo secuencialmente para cada clase, este orden en las imágenes podría distorsionar el entrenamiento, por esto, una vez leídas, se recomiennda aleatorizar su orden mediante la funcionalidad que ofrece el paquete para machine learning de Python scikit-learn.
+To train the model, it is necessary to load the images from disk and convert them into tensors. The class labels for each image can be extracted from the file names. As the images might be read sequentially by class—which could distort the training—it is recommended to randomize their order using the functionality provided by Python's scikit-learn machine learning package.
+"""
